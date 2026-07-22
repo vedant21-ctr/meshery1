@@ -107,6 +107,7 @@ const (
 	ErrInvalidEventDataCode               = "meshery-server-1357"
 	ErrUnreachableKubeAPICode             = "meshery-server-1304"
 	ErrFlushMeshSyncDataCode              = "meshery-server-1305"
+	ErrEmptyMeshSyncHandlerCode           = "meshery-server-1441"
 	ErrUpdateConnectionStatusCode         = "meshery-server-1306"
 	ErrResultNotFoundCode                 = "meshery-server-1307"
 	ErrPersistCredentialCode              = "meshery-server-1308"
@@ -146,12 +147,15 @@ const (
 	ErrMarshallingDesignIntoYAMLCode      = "meshery-server-1135"
 	ErrStatusCodeCode                     = "meshery-server-1368"
 	ErrMeshsyncDataHandlerCode            = "meshery-server-1370"
+	ErrReconcileServerIDCode              = "meshery-server-1445"
 	ErrWorkspaceMissingInputCode          = "meshery-server-1375"
 	ErrMeshsyncEventCode                  = "meshery-server-1379"
 	ErrMeshsyncStoreUpdatesCode           = "meshery-server-1380"
 	ErrRemoteProviderCapabilitiesCode     = "meshery-server-1420"
 	ErrRemoteProviderAuthExhaustedCode    = "meshery-server-1421"
 	ErrInvalidUUIDValueCode               = "meshery-server-1432"
+	ErrSystemSettingsCode                 = "meshery-server-1439"
+	ErrApplyControllersConfigCode         = "meshery-server-1440"
 )
 
 var (
@@ -545,7 +549,11 @@ func ErrUnreachableKubeAPI(err error, server string) error {
 }
 
 func ErrFlushMeshSyncData(err error, contextName, server string) error {
-	return errors.New(ErrFlushMeshSyncDataCode, errors.Alert, []string{"Unable to flush MeshSync data for context %s at %s "}, []string{err.Error()}, []string{"Meshery Database handler is not accessible to perform operations"}, []string{"Restart Meshery Server or Perform Hard Reset"})
+	return errors.New(ErrFlushMeshSyncDataCode, errors.Alert, []string{fmt.Sprintf("Unable to flush MeshSync data for context %s at %s", contextName, server)}, []string{err.Error()}, []string{"Meshery Database handler is not accessible to perform operations"}, []string{"Restart Meshery Server or Perform Hard Reset"})
+}
+
+func ErrEmptyMeshSyncHandler() error {
+	return errors.New(ErrEmptyMeshSyncHandlerCode, errors.Alert, []string{"MeshSync data flush skipped: database handler is not usable"}, []string{"The MeshSync database handler is nil, or its underlying database connection is not initialized"}, []string{"Meshery Database handler is not accessible to perform operations", "Meshery Database is crashed or not reachable"}, []string{"Restart Meshery Server", "Verify that Meshery Server can reach the database"})
 }
 
 func ErrUpdateConnectionStatus(err error, statusCode int) error {
@@ -665,6 +673,14 @@ func ErrMeshsyncDataHandler(err error) error {
 	return errors.New(ErrMeshsyncDataHandlerCode, errors.Alert, []string{"Error in meshsync data hadler"}, []string{err.Error()}, []string{"not deployed operator", "issue with connection to broker"}, []string{"check that operator is deployed", "check that server can establish connection to broker"})
 }
 
+// ErrReconcileServerID wraps a failure to back-fill an already-persisted
+// kubernetes connection's kubernetesServerId with the server ID freshly resolved
+// from the reachable cluster. It is best-effort and non-fatal: the reconcile
+// retries on the next discovery cycle, so it is surfaced at None severity.
+func ErrReconcileServerID(err error) error {
+	return errors.New(ErrReconcileServerIDCode, errors.None, []string{"Failed to reconcile the persisted Kubernetes server ID for the connection"}, []string{err.Error()}, []string{"The connection's persisted kubernetesServerId could not be read from or written to the connection store while syncing it with the live cluster's server ID."}, []string{"Verify the connection still exists and Meshery can reach the provider's connection store. The reconcile is retried automatically on the next discovery cycle."})
+}
+
 // ErrWorkspaceMissingInput is used by both the list-workspaces handler
 // (which requires only orgId from the query string) and the
 // get-workspace-by-id handler (which reads workspaceId from the URL path
@@ -688,4 +704,17 @@ func ErrMeshsyncEvent(err error) error {
 
 func ErrMeshsyncStoreUpdates(err error) error {
 	return errors.New(ErrMeshsyncStoreUpdatesCode, errors.Alert, []string{"Error processing MeshSync store update"}, []string{err.Error()}, []string{"MeshSync encountered an error while processing a store update event"}, []string{"Check MeshSync store logs. Verify that the database connection is active and the store is not corrupted."})
+}
+
+// ErrSystemSettings wraps failures reading or writing Meshery Server's
+// server-wide system settings store.
+func ErrSystemSettings(err error) error {
+	return errors.New(ErrSystemSettingsCode, errors.Alert, []string{"Error accessing server-wide system settings"}, []string{err.Error()}, []string{"The system_settings store could not be read or written, or the stored value is not valid JSON."}, []string{"Verify Meshery Server's database is reachable and writable, then retry the operation."})
+}
+
+// ErrApplyControllersConfig wraps failures propagating a resolved
+// controllers configuration (Meshery Operator / MeshSync / Broker) to a
+// managed cluster.
+func ErrApplyControllersConfig(err error) error {
+	return errors.New(ErrApplyControllersConfigCode, errors.Alert, []string{"Error applying controllers configuration to the cluster"}, []string{err.Error()}, []string{"The MeshSync or Broker custom resource could not be patched, or the MeshSync deployment overlay could not be applied.", "The Meshery Operator may not be deployed on the target cluster yet."}, []string{"Confirm the cluster is reachable and the Meshery Operator is deployed (operator deployment mode).", "Retry the change; configuration is re-applied whenever the connection reconnects."})
 }
