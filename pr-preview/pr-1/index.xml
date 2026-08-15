@@ -35243,7 +35243,11 @@ discovery), and its configuration, following the official NATS Helm chart&amp;rs
 topology. Client access is authenticated with a token that the Operator
 generates into a Secret — no static credentials ship with the deployment.&lt;/p&gt;</description></item><item><title>Build &amp; Release (CI)</title><link>/pr-preview/pr-1/project/contributing/build-and-release/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/project/contributing/build-and-release/</guid><description>&lt;p&gt;Meshery’s build and release system incorporates many tools, organized into different workflows each triggered by different events. Meshery’s build and release system does not run on a schedule, but is event-driven. GitHub Actions are used to define Meshery’s CI workflows. New builds of Meshery and its various components are automatically generated upon push, release, and other similar events, typically in relation to their respective master branches.&lt;/p&gt;
 &lt;div class="alert alert-info" role="alert"&gt;&lt;div class="h4 alert-heading" role="heading"&gt;Meshery Test Documents&lt;/div&gt;
-&lt;p&gt;The Meshery Test Strategy (&lt;a href='https://docs.google.com/document/d/11nAxYtz2SUusCYZ0JeNRrOLIxkgmmbUVWz63MBZV2oE/edit'&gt;1&lt;/a&gt;,&lt;a href='https://docs.google.com/document/d/14vbwnKafqxrr-cJOmLWEvvj75MFrxFKiUdfPwZRhg64/edit'&gt;2&lt;/a&gt;) is a comprehensive document that outlines the approach to testing, types of tests, frameworks used - test strategy - for each of Meshery&amp;rsquo;s architectural components. The &lt;a href='https://docs.google.com/spreadsheets/d/13Ir4gfaKoAX9r8qYjAFFl_U9ntke4X5ndREY1T7bnVs/edit'&gt;Meshery Test Plan&lt;/a&gt; is a tactical spreadsheet that &lt;em&gt;itemizes&lt;/em&gt; specific integration and end-to-end test cases and tracks their status. It includes a list of GitHub workflows and their purpose. Join the &lt;a href='https://docs.google.com/document/d/1GrVdGHZAYeu6wHNLLoiaKNqBtk7enXE9XeDRCvdA4bY/edit#'&gt;Meshery CI meeting&lt;/a&gt; and/or the &lt;a href='https://meshery.io/subscribe'&gt;developers mailing list&lt;/a&gt; to get involved. &lt;/div&gt;&lt;/p&gt;</description></item><item><title>Buildpacks</title><link>/pr-preview/pr-1/extensions/models/buildpacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/buildpacks/</guid><description/></item><item><title>Camel K</title><link>/pr-preview/pr-1/extensions/models/camel-k/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/camel-k/</guid><description/></item><item><title>Capsule Proxy</title><link>/pr-preview/pr-1/extensions/models/capsule-proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/capsule-proxy/</guid><description/></item><item><title>Catalog</title><link>/pr-preview/pr-1/concepts/architecture/catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/concepts/architecture/catalog/</guid><description>&lt;p&gt;&lt;a href="https://meshery.io/catalog"&gt;Meshery Catalog&lt;/a&gt; functions much like a cloud marketplace, providing a user-friendly interface for browsing, discovering, and sharing configurations and patterns for cloud native infrastructure. With Meshery Catalog, you can easily find and deploy Kubernetes-based infrastructure and tools, making it easy to streamline your cloud native development and operations processes. A Catolog is based on the Meshery&amp;rsquo;s &lt;a href="https://github.com/meshery/schemas/blob/98560345814e4be036d9f0020759faf3202ec2e4/schemas/constructs/v1alpha1/catalog_data.json"&gt;Catalog Schema&lt;/a&gt; with defined attributes.&lt;/p&gt;
+&lt;p&gt;The Meshery Test Strategy (&lt;a href='https://docs.google.com/document/d/11nAxYtz2SUusCYZ0JeNRrOLIxkgmmbUVWz63MBZV2oE/edit'&gt;1&lt;/a&gt;,&lt;a href='https://docs.google.com/document/d/14vbwnKafqxrr-cJOmLWEvvj75MFrxFKiUdfPwZRhg64/edit'&gt;2&lt;/a&gt;) is a comprehensive document that outlines the approach to testing, types of tests, frameworks used - test strategy - for each of Meshery&amp;rsquo;s architectural components. The &lt;a href='https://docs.google.com/spreadsheets/d/13Ir4gfaKoAX9r8qYjAFFl_U9ntke4X5ndREY1T7bnVs/edit'&gt;Meshery Test Plan&lt;/a&gt; is a tactical spreadsheet that &lt;em&gt;itemizes&lt;/em&gt; specific integration and end-to-end test cases and tracks their status. It includes a list of GitHub workflows and their purpose. Join the &lt;a href='https://docs.google.com/document/d/1GrVdGHZAYeu6wHNLLoiaKNqBtk7enXE9XeDRCvdA4bY/edit#'&gt;Meshery CI meeting&lt;/a&gt; and/or the &lt;a href='https://meshery.io/subscribe'&gt;developers mailing list&lt;/a&gt; to get involved. &lt;/div&gt;&lt;/p&gt;</description></item><item><title>Build Environment Gotchas</title><link>/pr-preview/pr-1/project/contributing/contributing-build-environment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/project/contributing/contributing-build-environment/</guid><description>&lt;p&gt;Each entry here is a failure whose message points somewhere other than the actual problem. Read the one that matches your symptom; none of them need to be read up front.&lt;/p&gt;
+&lt;h2 id="go-does-not-match-go-tool-version-on-dozens-of-dependencies"&gt;
+	Go: &amp;ldquo;does not match go tool version&amp;rdquo; on dozens of dependencies
+&lt;/h2&gt;
+&lt;p&gt;A build that fails with &lt;code&gt;compile: version &amp;quot;goX.Y.Z&amp;quot; does not match go tool version&lt;/code&gt; across many dependencies is an environment mismatch, not a code problem. A stale &lt;code&gt;GOROOT&lt;/code&gt; points at one Go installation while the &lt;code&gt;go&lt;/code&gt; on &lt;code&gt;PATH&lt;/code&gt; is a different one.&lt;/p&gt;</description></item><item><title>Buildpacks</title><link>/pr-preview/pr-1/extensions/models/buildpacks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/buildpacks/</guid><description/></item><item><title>Camel K</title><link>/pr-preview/pr-1/extensions/models/camel-k/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/camel-k/</guid><description/></item><item><title>Capsule Proxy</title><link>/pr-preview/pr-1/extensions/models/capsule-proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/capsule-proxy/</guid><description/></item><item><title>Catalog</title><link>/pr-preview/pr-1/concepts/architecture/catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/concepts/architecture/catalog/</guid><description>&lt;p&gt;&lt;a href="https://meshery.io/catalog"&gt;Meshery Catalog&lt;/a&gt; functions much like a cloud marketplace, providing a user-friendly interface for browsing, discovering, and sharing configurations and patterns for cloud native infrastructure. With Meshery Catalog, you can easily find and deploy Kubernetes-based infrastructure and tools, making it easy to streamline your cloud native development and operations processes. A Catolog is based on the Meshery&amp;rsquo;s &lt;a href="https://github.com/meshery/schemas/blob/98560345814e4be036d9f0020759faf3202ec2e4/schemas/constructs/v1alpha1/catalog_data.json"&gt;Catalog Schema&lt;/a&gt; with defined attributes.&lt;/p&gt;
 &lt;h2 id="a-collection-of-design-templates"&gt;
 	A collection of design templates
 &lt;/h2&gt;
@@ -35413,6 +35417,7 @@ and integration-test targets.&lt;/p&gt;</description></item><item><title>Contrib
 &lt;li&gt;&lt;a href="/pr-preview/pr-1/project/contributing/contributing-schemas/#testing-your-changes"&gt;Testing Your Changes&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/pr-preview/pr-1/project/contributing/contributing-schemas/#common-mistakes-to-avoid"&gt;Common Mistakes to Avoid&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/pr-preview/pr-1/project/contributing/contributing-schemas/#checklist-for-schema-changes"&gt;Checklist for Schema Changes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/pr-preview/pr-1/project/contributing/contributing-schemas/#consuming-schemas-from-mesherymeshery"&gt;Consuming schemas from meshery/meshery&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/pr-preview/pr-1/project/contributing/contributing-schemas/#getting-help"&gt;Getting Help&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
@@ -35535,10 +35540,10 @@ and integration-test targets.&lt;/p&gt;</description></item><item><title>Contrib
 &lt;h2 id="setting-up-environment-variable"&gt;
 	Setting up environment variable
 &lt;/h2&gt;
-&lt;p&gt;To run the tests successfully, three environment variables must be configured:&lt;br&gt;
-• &lt;code&gt;REMOTE_PROVIDER_USER_EMAIL&lt;/code&gt; (Required): The email associated with your account within your provider.&lt;br&gt;
-• &lt;code&gt;REMOTE_PROVIDER_USER_PASSWORD&lt;/code&gt; (Required): The password associated with your account within your provider.&lt;br&gt;
-• &lt;code&gt;PROVIDER_TOKEN&lt;/code&gt; (Optional): Your provider token, can be generated from an account registered within your provider&lt;/p&gt;</description></item><item><title>Contributing to Meshery using git</title><link>/pr-preview/pr-1/project/contributing/contributing-gitflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/project/contributing/contributing-gitflow/</guid><description>&lt;h1 id="working-by-forking"&gt;
+&lt;p&gt;Credentials are needed only by the &lt;code&gt;chromium-meshery-provider&lt;/code&gt; project, which authenticates against a remote provider. The &lt;code&gt;chromium-local-provider&lt;/code&gt; project needs none, so a contributor running only the Local provider suite can skip this section. To run &lt;code&gt;chromium-meshery-provider&lt;/code&gt;, configure one of two credential sets - a token on its own, or an email and password pair:&lt;br&gt;
+• &lt;code&gt;PROVIDER_TOKEN&lt;/code&gt; (Required unless the email and password below are both set): Your provider token, can be generated from an account registered within your provider&lt;br&gt;
+• &lt;code&gt;REMOTE_PROVIDER_USER_EMAIL&lt;/code&gt; (Required unless &lt;code&gt;PROVIDER_TOKEN&lt;/code&gt; is set): The email associated with your account within your provider.&lt;br&gt;
+• &lt;code&gt;REMOTE_PROVIDER_USER_PASSWORD&lt;/code&gt; (Required unless &lt;code&gt;PROVIDER_TOKEN&lt;/code&gt; is set): The password associated with your account within your provider.&lt;/p&gt;</description></item><item><title>Contributing to Meshery using git</title><link>/pr-preview/pr-1/project/contributing/contributing-gitflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/project/contributing/contributing-gitflow/</guid><description>&lt;h1 id="working-by-forking"&gt;
 	Working by Forking
 &lt;/h1&gt;
 &lt;p&gt;Just head over to the GitHub page and click the &amp;ldquo;Fork&amp;rdquo; button. It&amp;rsquo;s just that simple. Once you&amp;rsquo;ve done that, you can use your favorite git client to clone your repo or just head straight to the command line:&lt;/p&gt;
@@ -35785,29 +35790,15 @@ td {
 	x-annotations as an Extension Point
 &lt;/h2&gt;
 &lt;p&gt;Meshery already uses several &lt;code&gt;x-*&lt;/code&gt; vendor extensions internally to guide code generation, such as &lt;code&gt;x-go-type&lt;/code&gt;, &lt;code&gt;x-oapi-codegen-extra-tags&lt;/code&gt;, and &lt;code&gt;x-internal&lt;/code&gt;. These are consumed by Meshery&amp;rsquo;s own build pipeline.&lt;/p&gt;</description></item><item><title>Extensibility: UI</title><link>/pr-preview/pr-1/reference/extensibility/ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/reference/extensibility/ui/</guid><description>&lt;p&gt;Meshery UI has a number of extension points that allow you to greatly customize both its functional behavior and visual appearance. These extension points come in different types, and this document describes each type, its example use, best practices to consider, and caveats of which to be aware.&lt;/p&gt;
-&lt;h3 id="extensibility-customizing-text-based-forms-using-rjsf-custom-component"&gt;
-	Extensibility: Customizing Text-based Forms using RJSF Custom Component
-&lt;/h3&gt;
-&lt;p&gt;RJSFWrapperComponent provides customizations for RJSF forms, overriding the default behavior of meshery-ui rjsf forms. The &lt;a href="https://github.com/meshery/meshery/blob/0bc68d1cd0ba80a565afa68bce80899c22db9a2e/ui/components/MesheryMeshInterface/PatternService/RJSF.js#L66"&gt;Rjsf forms are wrapped&lt;/a&gt; in this component to receive custom props from a Meshery extension.
-
-
-&lt;pre class="codeblock-pre"&gt;
-	&lt;div class="codeblock"&gt;
-		&lt;code class="clipboardjs"&gt;&amp;lt;RJSFWrapperComponent {...props}&amp;gt;
- &amp;lt;RJSFForm
- isLoading={isLoading}
- schema={schema}
- data={data}
- onChange={(e) =&amp;gt; {
- setData(e.formData)
- }}
- jsonSchema={jsonSchema}
- /&amp;gt;
-&amp;lt;/RJSFWrapperComponent&amp;gt;&lt;/code&gt;
-	&lt;/div&gt;
-&lt;/pre&gt;
-
-See this &lt;a href="https://github.com/meshery/meshery/blob/0bc68d1cd0ba80a565afa68bce80899c22db9a2e/ui/components/MesheryMeshInterface/PatternService/RJSF.js#L91"&gt;RJSF Component&lt;/a&gt; as an example of how these properties are received.&lt;/p&gt;</description></item><item><title>External Secrets Operator</title><link>/pr-preview/pr-1/extensions/models/external-secrets-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/external-secrets-operator/</guid><description/></item><item><title>F5 Networks</title><link>/pr-preview/pr-1/extensions/models/f5-networks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/f5-networks/</guid><description/></item><item><title>Fabedge</title><link>/pr-preview/pr-1/extensions/models/fabedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fabedge/</guid><description/></item><item><title>Falco</title><link>/pr-preview/pr-1/extensions/models/falco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/falco/</guid><description/></item><item><title>Flagger</title><link>/pr-preview/pr-1/extensions/models/flagger/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flagger/</guid><description/></item><item><title>Fluent Operator</title><link>/pr-preview/pr-1/extensions/models/fluent-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluent-operator/</guid><description/></item><item><title>Fluentbit Operator</title><link>/pr-preview/pr-1/extensions/models/fluentbit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentbit-operator/</guid><description/></item><item><title>Fluentbit Skt</title><link>/pr-preview/pr-1/extensions/models/fluentbit-skt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentbit-skt/</guid><description/></item><item><title>Fluentd Operator</title><link>/pr-preview/pr-1/extensions/models/fluentd-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentd-operator/</guid><description/></item><item><title>Fluentd Operator</title><link>/pr-preview/pr-1/extensions/models/fluentd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentd/</guid><description/></item><item><title>Fluid</title><link>/pr-preview/pr-1/extensions/models/fluid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluid/</guid><description/></item><item><title>Flux</title><link>/pr-preview/pr-1/extensions/models/flux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flux/</guid><description/></item><item><title>Flyte Sandbox</title><link>/pr-preview/pr-1/extensions/models/flyte-sandbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flyte-sandbox/</guid><description/></item><item><title>Fonio</title><link>/pr-preview/pr-1/extensions/models/fonio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fonio/</guid><description/></item><item><title>Gerrit Operator</title><link>/pr-preview/pr-1/extensions/models/gerrit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gerrit-operator/</guid><description/></item><item><title>Github Actions Runner Operator</title><link>/pr-preview/pr-1/extensions/models/github-actions-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/github-actions-runner-operator/</guid><description/></item><item><title>Github Actions Runners</title><link>/pr-preview/pr-1/extensions/models/github-actions-runners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/github-actions-runners/</guid><description/></item><item><title>GitLab</title><link>/pr-preview/pr-1/extensions/models/gitlab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab/</guid><description/></item><item><title>Gitlab Controller</title><link>/pr-preview/pr-1/extensions/models/gitlab-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab-controller/</guid><description/></item><item><title>Gitlab Runner Operator</title><link>/pr-preview/pr-1/extensions/models/gitlab-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab-runner-operator/</guid><description/></item><item><title>GitOps with Meshery</title><link>/pr-preview/pr-1/guides/infrastructure-management/gitops-with-meshery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/guides/infrastructure-management/gitops-with-meshery/</guid><description>&lt;h2 id="meshery-snapshot-github-action"&gt;
+&lt;div class="alert alert-warning" role="alert"&gt;&lt;div class="h4 alert-heading" role="heading"&gt;UI extensions share Meshery UI's origin and session&lt;/div&gt;
+&lt;p&gt;Extension components are loaded into Meshery UI&amp;rsquo;s own browser origin and JavaScript
+context. They share the DOM, the session cookie, and the ability to call any API the
+signed-in user can call. There is no iframe or sandbox boundary between an extension
+component and the rest of the UI, so an enabled UI extension is trusted code. Operators
+should read
+&lt;a href="/pr-preview/pr-1/installation/production/security-hardening/#trusting-an-extension"&gt;Trusting an extension&lt;/a&gt;;
+authors should read
+&lt;a href="/pr-preview/pr-1/reference/extensibility/verify-compatibility/"&gt;Ensuring Extension Compatibility&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>External Secrets Operator</title><link>/pr-preview/pr-1/extensions/models/external-secrets-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/external-secrets-operator/</guid><description/></item><item><title>F5 Networks</title><link>/pr-preview/pr-1/extensions/models/f5-networks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/f5-networks/</guid><description/></item><item><title>Fabedge</title><link>/pr-preview/pr-1/extensions/models/fabedge/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fabedge/</guid><description/></item><item><title>Falco</title><link>/pr-preview/pr-1/extensions/models/falco/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/falco/</guid><description/></item><item><title>Flagger</title><link>/pr-preview/pr-1/extensions/models/flagger/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flagger/</guid><description/></item><item><title>Fluent Operator</title><link>/pr-preview/pr-1/extensions/models/fluent-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluent-operator/</guid><description/></item><item><title>Fluentbit Operator</title><link>/pr-preview/pr-1/extensions/models/fluentbit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentbit-operator/</guid><description/></item><item><title>Fluentbit Skt</title><link>/pr-preview/pr-1/extensions/models/fluentbit-skt/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentbit-skt/</guid><description/></item><item><title>Fluentd Operator</title><link>/pr-preview/pr-1/extensions/models/fluentd-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentd-operator/</guid><description/></item><item><title>Fluentd Operator</title><link>/pr-preview/pr-1/extensions/models/fluentd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluentd/</guid><description/></item><item><title>Fluid</title><link>/pr-preview/pr-1/extensions/models/fluid/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fluid/</guid><description/></item><item><title>Flux</title><link>/pr-preview/pr-1/extensions/models/flux/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flux/</guid><description/></item><item><title>Flyte Sandbox</title><link>/pr-preview/pr-1/extensions/models/flyte-sandbox/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/flyte-sandbox/</guid><description/></item><item><title>Fonio</title><link>/pr-preview/pr-1/extensions/models/fonio/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/fonio/</guid><description/></item><item><title>Gerrit Operator</title><link>/pr-preview/pr-1/extensions/models/gerrit-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gerrit-operator/</guid><description/></item><item><title>Github Actions Runner Operator</title><link>/pr-preview/pr-1/extensions/models/github-actions-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/github-actions-runner-operator/</guid><description/></item><item><title>Github Actions Runners</title><link>/pr-preview/pr-1/extensions/models/github-actions-runners/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/github-actions-runners/</guid><description/></item><item><title>GitLab</title><link>/pr-preview/pr-1/extensions/models/gitlab/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab/</guid><description/></item><item><title>Gitlab Controller</title><link>/pr-preview/pr-1/extensions/models/gitlab-controller/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab-controller/</guid><description/></item><item><title>Gitlab Runner Operator</title><link>/pr-preview/pr-1/extensions/models/gitlab-runner-operator/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/extensions/models/gitlab-runner-operator/</guid><description/></item><item><title>GitOps with Meshery</title><link>/pr-preview/pr-1/guides/infrastructure-management/gitops-with-meshery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/guides/infrastructure-management/gitops-with-meshery/</guid><description>&lt;h2 id="meshery-snapshot-github-action"&gt;
 	Meshery Snapshot GitHub Action
 &lt;/h2&gt;
 &lt;ul&gt;
@@ -36704,7 +36695,7 @@ mesheryctl component view [component-name | component-id] -o [json|yaml] --save
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Create a new connection to a Kubernetes cluster or other supported platform&lt;/p&gt;
+&lt;p&gt;Create a new connection to a Kubernetes cluster or other supported platform.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl connection create [flags]
@@ -36777,7 +36768,7 @@ mesheryctl connection create --type gke --token auth.json
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Delete a connection&lt;/p&gt;
+&lt;p&gt;Delete a connection.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl connection delete [flags]
@@ -36892,7 +36883,7 @@ mesheryctl connection view [connection-name|connection-id] --output-format json
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Apply design will trigger deploy of the design file&lt;/p&gt;
+&lt;p&gt;Apply design will trigger deploy of the design file.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl design apply [flags]
@@ -36949,7 +36940,7 @@ mesheryctl design apply [design-name]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;delete design file will trigger deletion of the design file&lt;/p&gt;
+&lt;p&gt;delete design file will trigger deletion of the design file.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl design delete [flags]
@@ -36997,7 +36988,7 @@ mesheryctl design delete [file | URL]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Command will trigger deploy of design&lt;/p&gt;
+&lt;p&gt;Command will trigger deploy of design.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl design deploy [flags]
@@ -37147,7 +37138,7 @@ mesheryctl design list --page [pange-number]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Undeploy design will trigger undeploy of design&lt;/p&gt;
+&lt;p&gt;Undeploy design will trigger undeploy of design.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl design undeploy [flags]
@@ -37195,7 +37186,7 @@ mesheryctl design undeploy -f [filepath]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Display the content of a specific design based on name or id&lt;/p&gt;
+&lt;p&gt;Display the content of a specific design based on name or id.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl design view design name [flags]
@@ -37463,7 +37454,7 @@ mesheryctl exp [flags]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Delete a filter file using the name or ID of a filter&lt;/p&gt;
+&lt;p&gt;Delete a filter file using the name or ID of a filter.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl filter delete [filter-name | ID] [flags]
@@ -37511,7 +37502,7 @@ mesheryctl filter delete [filter-name | ID]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Import a WASM filter from a URI (http/s) or local filesystem path&lt;/p&gt;
+&lt;p&gt;Import a WASM filter from a URI (http/s) or local filesystem path.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl filter import [URI] [flags]
@@ -37580,8 +37571,10 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 &lt;/h2&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
+ -c, --count (optional) Display count only
  -h, --help help for list
  -p, --page int (optional) List next set of filters with --page (default = 1) (default 1)
+ -s, --pagesize int (optional) List next set of filters with --pagesize (default = 25) (default 25)
  -v, --verbose Display full length user and filter file identifiers
 
 &lt;/div&gt;
@@ -37606,7 +37599,7 @@ mesheryctl filter list 'Test Filter' (maximum 25 filters)
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Displays the contents of a specific filter based on name or id&lt;/p&gt;
+&lt;p&gt;Displays the contents of a specific filter based on name or id.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl filter view [flags]
@@ -38115,7 +38108,7 @@ mesheryctl organization list --count
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Run Performance test using existing profiles or using flags&lt;/p&gt;
+&lt;p&gt;Run Performance test using existing profiles or using flags.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl perf apply [profile-name] [flags]
@@ -38146,7 +38139,7 @@ mesheryctl perf apply meshery-profile-new --url "https://google.com"
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;List all the available performance profiles&lt;/p&gt;
+&lt;p&gt;List all the available performance profiles.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl perf profile [profile-name] [flags]
@@ -38211,7 +38204,7 @@ mesheryctl perf profile test --view
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;List all the available test results of a performance profile&lt;/p&gt;
+&lt;p&gt;List all the available test results of a performance profile.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl perf result [profile-name] [flags]
@@ -38358,7 +38351,7 @@ mesheryctl registry update --spreadsheet-id 1DZHnzxYWOlJ69Oguz4LkRVTFM79kC2tuvdw
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Generate relationships documents from a CSV file or Google Spreadsheet&lt;/p&gt;
+&lt;p&gt;Generate relationships documents from a CSV file or Google Spreadsheet.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl relationship generate [flags]
@@ -38422,7 +38415,7 @@ mesheryctl relationship generate --spreadsheet-id [Spreadsheet ID] --spreadsheet
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;List all relationships registered in Meshery Server&lt;/p&gt;
+&lt;p&gt;List all relationships registered in Meshery Server.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl relationship list [flags]
@@ -38492,7 +38485,7 @@ mesheryctl relationship list --count
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;Search registered relationship(s) used by different models&lt;/p&gt;
+&lt;p&gt;Search registered relationship(s) used by different models.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl relationship search [flags]
@@ -38550,7 +38543,7 @@ mesheryctl relationship search [--kind &lt;kind&gt;] [--page &lt;int&gt;]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;view a relationship queried by the model name&lt;/p&gt;
+&lt;p&gt;view a relationship queried by the model name.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl relationship view [flags]
@@ -39010,6 +39003,10 @@ mesheryctl system context view
 	mesheryctl system dashboard
 &lt;/h1&gt;
 &lt;p&gt;Open Meshery UI in browser.&lt;/p&gt;
+&lt;h2 id="synopsis"&gt;
+	Synopsis
+&lt;/h2&gt;
+&lt;p&gt;Open Meshery UI in browser.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl system dashboard [flags]
@@ -39033,14 +39030,7 @@ mesheryctl system dashboard --port-forward
 
 &lt;/div&gt;
 &lt;/pre&gt; 
-&lt;p&gt;Open Meshery UI in browser and use port-forwarding, listen on port 9081 locally, forwarding traffic to meshery server in the pod&lt;/p&gt;
-&lt;pre class='codeblock-pre'&gt;
-&lt;div class='codeblock'&gt;
-mesheryctl system dashboard --port-forward -p 9081
-
-&lt;/div&gt;
-&lt;/pre&gt; 
-&lt;p&gt;(optional) skip opening of MesheryUI in browser.&lt;/p&gt;</description></item><item><title>mesheryctl-system-delete</title><link>/pr-preview/pr-1/reference/references/mesheryctl/system/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/reference/references/mesheryctl/system/delete/</guid><description>&lt;h1 id="mesheryctl-system-delete"&gt;
+&lt;p&gt;Open Meshery UI in browser and use port-forwarding, listen on port 9081 locally, forwarding traffic to meshery server in the pod&lt;/p&gt;</description></item><item><title>mesheryctl-system-delete</title><link>/pr-preview/pr-1/reference/references/mesheryctl/system/delete/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/pr-preview/pr-1/reference/references/mesheryctl/system/delete/</guid><description>&lt;h1 id="mesheryctl-system-delete"&gt;
 	mesheryctl system delete
 &lt;/h1&gt;
 &lt;p&gt;Delete Meshery containers&lt;/p&gt;
@@ -39432,7 +39422,7 @@ mesheryctl system provider switch [provider]
 &lt;h2 id="synopsis"&gt;
 	Synopsis
 &lt;/h2&gt;
-&lt;p&gt;View provider of context in focus&lt;/p&gt;
+&lt;p&gt;View provider of context in focus.&lt;/p&gt;
 &lt;pre class='codeblock-pre'&gt;
 &lt;div class='codeblock'&gt;
 mesheryctl system provider view [flags]
